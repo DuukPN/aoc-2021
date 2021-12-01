@@ -1,4 +1,4 @@
-from io import read_input
+from lib import read_input
 
 
 def solve(input):
@@ -7,19 +7,11 @@ def solve(input):
 
 
 def part_one(input):
-    increases = 0
-    for i in range(1, len(input)):
-        if input[i-1] < input[i]:
-            increases += 1
-    return increases
+    return sum([1 if input[i] > input[i - 1] else 0 for i in range(1, len(input))])
 
 
 def part_two(input):
-    increases = 0
-    for i in range(3, len(input)):
-        if input[i-3] < input[i]:
-            increases += 1
-    return increases
+    return sum([1 if input[i] > input[i - 3] else 0 for i in range(3, len(input))])
 
 
 if __name__ == "__main__":
