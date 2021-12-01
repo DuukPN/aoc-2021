@@ -15,4 +15,4 @@ def part_two(input):
 
 
 if __name__ == "__main__":
-    print(solve(read_input("day01.txt")))
+    print(solve(read_input(1)))
