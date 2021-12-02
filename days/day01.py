@@ -1,9 +1,14 @@
-from lib import read_input
+from lib import load_input
+
+day = 1
 
 
-def solve(data):
-    # return part_one(input)
-    return part_two(data)
+def solve(data, part=2):
+    nums = [int(line) for line in data.splitlines()]
+    if part == 1:
+        return part_one(nums)
+    elif part == 2:
+        return part_two(nums)
 
 
 def part_one(data):
@@ -15,4 +20,6 @@ def part_two(data):
 
 
 if __name__ == "__main__":
-    print(solve(read_input(1)))
+    data = load_input(day)
+    print(solve(data, 1))
+    print(solve(data))

@@ -2,3 +2,4 @@
 scala/*
 !scala/src/
 __pycache__
+credentials.secret
