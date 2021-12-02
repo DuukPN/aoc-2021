@@ -1,1 +1,4 @@
 .idea/
+scala/*
+!scala/src/
+__pycache__
