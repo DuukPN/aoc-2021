@@ -6,5 +6,5 @@ def read_input(day):
     f = open(path)
     data = []
     for line in f:
-        data.append(int(line))
+        data.append(line)
     return data
