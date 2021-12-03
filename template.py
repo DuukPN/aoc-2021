@@ -20,6 +20,5 @@ def part_two(data):
 
 
 if __name__ == "__main__":
-    data = load_input(day)
-    print(solve(data, 1))
-    print(solve(data))
+    print(solve(load_input(day), 1))
+    print(solve(load_input(day)))

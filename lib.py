@@ -1,7 +1,7 @@
 from pathlib import Path
 import requests
 
-YEAR = 2020
+YEAR = 2021
 ROOT_PATH = Path(__file__).parents[0]
 
 
@@ -34,7 +34,7 @@ def create_new_day():
         day += 1
 
     Path(ROOT_PATH, get_filename(day, "small")).write_text("")
-    template = Path(ROOT_PATH, "template.py").read_text().replace("X", str(day))
+    template = Path(ROOT_PATH, "template.py").read_text().replace("0", str(day))
     Path(ROOT_PATH, "days", f"day{str(day).zfill(2)}.py").write_text(template)
 
 
