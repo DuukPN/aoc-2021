@@ -6,11 +6,8 @@ day = 4
 
 def solve(data, part=2):
     lines = data.splitlines()
-
     nums = [int(x) for x in lines[0].split(",")]
-
     boards = []
-
     for i in range(2, len(lines), 6):
         board = []
         for j in range(i, i+5):

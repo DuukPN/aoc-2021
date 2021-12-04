@@ -61,7 +61,6 @@ def part_two(data):
     return l[0] * l[1]
 
 
-
 if __name__ == "__main__":
     print(solve(load_input(day), 1))
     print(solve(load_input(day)))
