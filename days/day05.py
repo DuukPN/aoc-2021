@@ -23,29 +23,23 @@ def part_two(data):
 def count_double_vents(data, diagonal=False):
     field = np.zeros(1000000).reshape((1000, 1000))
     for line in data:
-        if line[0][0] == line[1][0]:
-            x = int(line[0][0])
-            y1 = int(line[0][1])
-            y2 = int(line[1][1])
+        x1 = int(line[0][0])
+        x2 = int(line[1][0])
+        y1 = int(line[0][1])
+        y2 = int(line[1][1])
+        if x1 == x2:
             if y1 > y2:
-                field[x, y2: y1 + 1] += 1
+                field[x1, y2: y1 + 1] += 1
             else:
-                field[x, y1: y2 + 1] += 1
+                field[x1, y1: y2 + 1] += 1
 
-        elif line[0][1] == line[1][1]:
-            y = int(line[0][1])
-            x1 = int(line[0][0])
-            x2 = int(line[1][0])
+        elif y1 == y2:
             if x1 > x2:
-                field[x2: x1 + 1, y] += 1
+                field[x2: x1 + 1, y1] += 1
             else:
-                field[x1: x2 + 1, y] += 1
+                field[x1: x2 + 1, y1] += 1
 
         elif diagonal:
-            x1 = int(line[0][0])
-            x2 = int(line[1][0])
-            y1 = int(line[0][1])
-            y2 = int(line[1][1])
             dx = x2 - x1
             dy = y2 - y1
             top = max(x1, x2)
