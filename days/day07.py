@@ -16,7 +16,7 @@ def part_one(data):
 
 
 def part_two(data):
-    return min([sum([(abs(i - x) * (abs(i - x) + 1)) / 2 for x in data]) for i in range(min(data), max(data) + 1)])
+    return min([sum([(abs(i - x) * (abs(i - x) + 1)) // 2 for x in data]) for i in range(min(data), max(data) + 1)])
 
 
 if __name__ == "__main__":
