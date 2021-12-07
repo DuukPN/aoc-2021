@@ -12,25 +12,11 @@ def solve(data, part=2):
 
 
 def part_one(data):
-    min_fuel = float("inf")
-    for i in range(min(data), max(data) + 1):
-        delta = 0
-        for x in data:
-            delta += abs(i - x)
-        if delta < min_fuel:
-            min_fuel = delta
-    return min_fuel
+    return min([sum(abs(i - x) for x in data) for i in range(min(data), max(data) + 1)])
 
 
 def part_two(data):
-    min_fuel = float("inf")
-    for i in range(min(data), max(data) + 1):
-        delta = 0
-        for x in data:
-            delta += (abs(i - x) * (abs(i - x) + 1)) / 2
-        if delta < min_fuel:
-            min_fuel = delta
-    return min_fuel
+    return min([sum([(abs(i - x) * (abs(i - x) + 1)) / 2 for x in data]) for i in range(min(data), max(data) + 1)])
 
 
 if __name__ == "__main__":
