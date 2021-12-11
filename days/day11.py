@@ -51,38 +51,12 @@ def charge_neighbors(data, flashed, flashing):
     i, j = flashing.pop()
     data[i][j] = 0
     flashed[i][j] = True
-    if i - 1 >= 0 and not flashed[i - 1][j]:
-        data[i - 1][j] += 1
-        if data[i - 1][j] == 10:
-            flashing.append((i - 1, j))
-    if i - 1 >= 0 and j - 1 >= 0 and not flashed[i - 1][j - 1]:
-        data[i - 1][j - 1] += 1
-        if data[i - 1][j - 1] == 10:
-            flashing.append((i - 1, j - 1))
-    if j - 1 >= 0 and not flashed[i][j - 1]:
-        data[i][j - 1] += 1
-        if data[i][j - 1] == 10:
-            flashing.append((i, j - 1))
-    if i + 1 < len(data) and j - 1 >= 0 and not flashed[i + 1][j - 1]:
-        data[i + 1][j - 1] += 1
-        if data[i + 1][j - 1] == 10:
-            flashing.append((i + 1, j - 1))
-    if i + 1 < len(data) and not flashed[i + 1][j]:
-        data[i + 1][j] += 1
-        if data[i + 1][j] == 10:
-            flashing.append((i + 1, j))
-    if i + 1 < len(data) and j + 1 < len(data[0]) and not flashed[i + 1][j + 1]:
-        data[i + 1][j + 1] += 1
-        if data[i + 1][j + 1] == 10:
-            flashing.append((i + 1, j + 1))
-    if j + 1 < len(data[0]) and not flashed[i][j + 1]:
-        data[i][j + 1] += 1
-        if data[i][j + 1] == 10:
-            flashing.append((i, j + 1))
-    if i - 1 >= 0 and j + 1 < len(data[0]) and not flashed[i - 1][j + 1]:
-        data[i - 1][j + 1] += 1
-        if data[i - 1][j + 1] == 10:
-            flashing.append((i - 1, j + 1))
+    for x in range(i-1, i+2):
+        for y in range(j-1, j+2):
+            if x in range(len(data)) and y in range(len(data[0])) and not flashed[x][y]:
+                data[x][y] += 1
+                if data[x][y] == 10:
+                    flashing.append((x, y))
 
 
 if __name__ == "__main__":
