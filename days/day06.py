@@ -19,7 +19,7 @@ def part_two(data):
 
 
 def population(data, days):
-    fish = defaultdict(int)
+    fish = [0] * 9
     for x in data:
         fish[x] += 1
 
@@ -30,11 +30,7 @@ def population(data, days):
         fish[6] += hatched
         fish[8] = hatched
 
-    total = 0
-    for i in range(9):
-        total += fish[i]
-
-    return total
+    return sum(fish)
 
 
 def naive_population(data, days):
