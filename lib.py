@@ -1,3 +1,7 @@
+"""
+Taken from https://github.com/yoshivda/aoc2021
+"""
+
 import inspect
 from os.path import splitext, basename
 from pathlib import Path
