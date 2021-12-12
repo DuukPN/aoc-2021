@@ -1,8 +1,6 @@
 from lib import load_input
 import numpy as np
 
-day = 5
-
 
 def solve(data, part=2):
     lines = [[x[0].split(","), x[1].split(",")] for x in [line.split(" -> ") for line in data.splitlines()]]
@@ -57,5 +55,5 @@ def count_double_vents(data, diagonal=False):
 
 
 if __name__ == "__main__":
-    print(solve(load_input(day), 1))
-    print(solve(load_input(day)))
+    print(solve(load_input(), 1))
+    print(solve(load_input()))

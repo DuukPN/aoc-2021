@@ -2,8 +2,6 @@ from collections import defaultdict
 
 from lib import load_input
 
-day = 12
-
 
 def solve(data, part=2):
     edges = defaultdict(list)
@@ -51,5 +49,5 @@ def paths_recursive(edges, curr, visited, threshold=1):
 
 
 if __name__ == "__main__":
-    print(solve(load_input(day), 1))
-    print(solve(load_input(day)))
+    print(solve(load_input(), 1))
+    print(solve(load_input()))

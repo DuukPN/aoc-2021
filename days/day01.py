@@ -1,7 +1,5 @@
 from lib import load_input
 
-day = 1
-
 
 def solve(data, part=2):
     nums = [int(line) for line in data.splitlines()]
@@ -20,5 +18,5 @@ def part_two(data):
 
 
 if __name__ == "__main__":
-    print(solve(load_input(day), 1))
-    print(solve(load_input(day)))
+    print(solve(load_input(), 1))
+    print(solve(load_input()))

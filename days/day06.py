@@ -1,8 +1,6 @@
 from lib import load_input
 from collections import defaultdict
 
-day = 6
-
 
 def solve(data, part=2):
     lines = [int(x) for x in data.split(",")]
@@ -52,5 +50,5 @@ def naive_population(data, days):
 
 
 if __name__ == "__main__":
-    print(solve(load_input(day), 1))
-    print(solve(load_input(day)))
+    print(solve(load_input(), 1))
+    print(solve(load_input()))

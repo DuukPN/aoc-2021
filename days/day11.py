@@ -1,7 +1,5 @@
 from lib import load_input
 
-day = 11
-
 
 def solve(data, part=2):
     lines = [[int(c) for c in line] for line in data.splitlines()]
@@ -60,5 +58,5 @@ def charge_neighbors(data, flashed, flashing):
 
 
 if __name__ == "__main__":
-    print(solve(load_input(day), 1))
-    print(solve(load_input(day)))
+    print(solve(load_input(), 1))
+    print(solve(load_input()))

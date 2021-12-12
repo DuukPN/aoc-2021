@@ -1,7 +1,5 @@
 from lib import load_input
 
-day = 3
-
 
 def solve(data, part=2):
     lines = data.splitlines()
@@ -56,11 +54,10 @@ def part_two(data):
                 if line.startswith(curr):
                     curr = line
                     break
-        print(curr)
         l.append(int(curr, 2))
     return l[0] * l[1]
 
 
 if __name__ == "__main__":
-    print(solve(load_input(day), 1))
-    print(solve(load_input(day)))
+    print(solve(load_input(), 1))
+    print(solve(load_input()))
