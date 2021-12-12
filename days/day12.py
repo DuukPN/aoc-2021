@@ -1,6 +1,5 @@
-from collections import defaultdict
-
 from lib import load_input
+from collections import defaultdict
 
 
 def solve(data, part=2):
@@ -16,36 +15,31 @@ def solve(data, part=2):
 
 
 def part_one(edges):
-    return len(paths_recursive(edges, "start", defaultdict(int)))
+    return paths_recursive(edges, "start", defaultdict(int))
 
 
 def part_two(edges):
-    visited = defaultdict(int)
-    paths = paths_recursive(edges, "start", visited, 2)
-    return len(paths)
+    return paths_recursive(edges, "start", defaultdict(int), 2)
 
 
 def paths_recursive(edges, curr, visited, threshold=1):
     if curr == "end":
-        return [curr]
+        return 1
     if curr == "start" and visited["start"] == 1:
-        return []
+        return 0
 
-    res = []
     if curr.islower():
         visited[curr] += 1
 
+    paths = 0
     for edge in edges[curr]:
-        if threshold in visited.values() and visited[edge] >= 1:
-            continue
-        paths = paths_recursive(edges, edge, visited, threshold)
-        for path in paths:
-            res.append(curr + "," + path)
+        if not (threshold in visited.values() and visited[edge] >= 1):
+            paths += paths_recursive(edges, edge, visited, threshold)
 
     if curr.islower():
         visited[curr] -= 1
 
-    return res
+    return paths
 
 
 if __name__ == "__main__":
