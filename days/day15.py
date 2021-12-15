@@ -1,5 +1,6 @@
+from heapq import heappush, heappop
+
 from lib import load_input
-from queue import PriorityQueue
 
 
 def solve(data, part=2):
@@ -41,11 +42,11 @@ def part_two(data):
 
 
 def dijkstra(data):
-    pq = PriorityQueue(len(data) * len(data[0]) * 10)
+    pq = []
     visited = set()
-    pq.put((0, (0, 0)))
-    while pq.not_empty:
-        curr = pq.get()
+    heappush(pq, (0, (0, 0)))
+    while len(pq):
+        curr = heappop(pq)
         coord = curr[1]
         if coord == (len(data) - 1, len(data[0]) - 1):
             return curr[0]
@@ -53,10 +54,10 @@ def dijkstra(data):
             continue
 
         visited.add(coord)
-        for edge in [(coord[0] - 1, coord[1]), (coord[0] + 1, coord[1]), (coord[0], coord[1] - 1),
-                     (coord[0], coord[1] + 1)]:
+        for edge in [(coord[0] - 1, coord[1]), (coord[0] + 1, coord[1]),
+                     (coord[0], coord[1] - 1), (coord[0], coord[1] + 1)]:
             if edge[0] in range(len(data)) and edge[1] in range(len(data[0])) and edge not in visited:
-                pq.put((curr[0] + int(data[edge[0]][edge[1]]), edge))
+                heappush(pq, (curr[0] + int(data[edge[0]][edge[1]]), edge))
 
     return -1
 
