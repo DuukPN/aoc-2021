@@ -4,12 +4,17 @@ from lib import load_input
 
 
 def solve(data, part=2):
-    binary_string = "".join(bin(int(c, 16))[2:].zfill(4) for c in data.strip())
-
-    if part == 1:
-        return part_one(binary_string)
-    elif part == 2:
-        return part_two(binary_string)
+    binary_strings = ["".join(bin(int(c, 16))[2:].zfill(4) for c in line) for line in data.splitlines()]
+    if len(binary_strings) == 1:
+        if part == 1:
+            return part_one(*binary_strings)
+        elif part == 2:
+            return part_two(*binary_strings)
+    else:
+        if part == 1:
+            return [part_one(binary_string) for binary_string in binary_strings]
+        elif part == 2:
+            return [part_two(binary_string) for binary_string in binary_strings]
 
 
 def part_one(data):
